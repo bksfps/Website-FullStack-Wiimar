@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Produtos</h1>
+    <h1>Gerenciamento de Produtos</h1>
+
+    <h2>Adicionar Produto</h2>
+    <input type="text" id="nome" placeholder="Nome do Produto" />
+    <input type="number" id="preco" placeholder="Preço do Produto" />
+    <input type="number" id="quantidade" placeholder="Quantidade em Estoque" />
+    <button onclick="adicionarProduto()">Adicionar Produto</button>
+
+    <h2>Remover Quantidade do Estoque</h2>
+    <input type="text" id="idRemover" placeholder="ID do Produto" />
+    <input type="number" id="quantidadeRemover" placeholder="Quantidade a Remover" />
+    <button onclick="removerQuantidade()">Remover Quantidade</button>
+
+    <h2>Deletar Produto</h2>
+    <input type="text" id="idDeletar" placeholder="ID do Produto" />
+    <button onclick="deletarProduto()">Deletar Produto</button>
+
+    <script>
+        async function adicionarProduto() {
+            const nome = document.getElementById('nome').value;
+            const preco = parseFloat(document.getElementById('preco').value);
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+
+            const response = await fetch('/api/produtos', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, preco, quantidadeEmEstoque: quantidade })
+            });
+
+            if (response.ok) {
+                alert('Produto adicionado com sucesso!');
+            } else {
+                alert('Erro ao adicionar produto.');
+            }
+        }
+
+        async function removerQuantidade() {
+            const id = document.getElementById('idRemover').value;
+            const quantidade = parseInt(document.getElementById('quantidadeRemover').value);
+            
+            const response = await fetch(`/api/produtos/remover/${id}?quantidade=${quantidade}`, {
+                method: 'PUT'
+            });
+
+            if (response.ok) {
+                alert('Quantidade removida com sucesso!');
+            } else {
+                alert('Erro ao remover quantidade.');
+            }
+        }
+
+        async function deletarProduto() {
+            const id = document.getElementById('idDeletar').value;
+
+            const response = await fetch(`/api/produtos/${id}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                alert('Produto deletado com sucesso!');
+            } else {
+                alert('Erro ao deletar produto.');
+            }
+        }
+    </script>
+</body>
+</html>

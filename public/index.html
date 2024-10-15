@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Login</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <form id="cadastroForm">
+        <input type="text" id="usernameCadastro" placeholder="Nome de Usuário" required />
+        <input type="password" id="senhaCadastro" placeholder="Senha" required />
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h1>Login</h1>
+    <form id="loginForm">
+        <input type="text" id="usernameLogin" placeholder="Nome de Usuário" required />
+        <input type="password" id="senhaLogin" placeholder="Senha" required />
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        // Função para cadastrar usuário
+        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('usernameCadastro').value;
+            const senha = document.getElementById('senhaCadastro').value;
+
+            const response = await fetch('/usuarios/cadastrar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, senha }) // Apenas username e senha
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Usuário cadastrado com sucesso!');
+            } else {
+                alert('Erro ao cadastrar usuário: ' + data); // Exibe mensagem de erro
+            }
+        });
+
+        // Função para fazer login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('usernameLogin').value;
+            const senha = document.getElementById('senhaLogin').value;
+
+            const response = await fetch('/usuarios/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, senha })
+            });
+
+            if (response.ok) {
+                alert('Login bem-sucedido!');
+                window.location.href = 'produtos.html'; // Redireciona para a página de produtos
+            } else {
+                alert('Usuário ou senha incorretos.');
+            }
+        });
+    </script>
+</body>
+</html>
