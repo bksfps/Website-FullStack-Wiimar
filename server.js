@@ -64,9 +64,9 @@ app.delete('/api/produtos/:id', async (req, res) => {
 
 // Rotas de cadastro e login de usuários
 app.post('/usuarios/cadastrar', async (req, res) => {
-    const { username, senha } = req.body;
+    const { username, email, phone, senha } = req.body;
 
-    const usuario = new Usuario({ username, senha });
+    const usuario = new Usuario({ username, email, phone, senha });
     try {
         await usuario.save();
         res.status(201).send('Usuário cadastrado com sucesso');
@@ -77,9 +77,9 @@ app.post('/usuarios/cadastrar', async (req, res) => {
 });
 
 app.post('/usuarios/login', async (req, res) => {
-    const { username, senha } = req.body;
+    const { email, senha } = req.body;
 
-    const usuario = await Usuario.findOne({ username });
+    const usuario = await Usuario.findOne({ email });
     if (usuario && usuario.senha === senha) {
         res.status(200).send('Login bem-sucedido');
     } else {
