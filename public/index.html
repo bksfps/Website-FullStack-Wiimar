@@ -2,68 +2,234 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro e Login</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>EcoScooters</title>
 </head>
 <body>
-    <h1>Cadastro</h1>
-    <form id="cadastroForm">
-        <input type="text" id="usernameCadastro" placeholder="Nome de Usuário" required />
-        <input type="email" id="emailCadastro" placeholder="Email" required />
-        <input type="tel" id="phoneCadastro" placeholder="Telefone" required />
-        <input type="password" id="senhaCadastro" placeholder="Senha" required />
-        <button type="submit">Cadastrar</button>
-    </form>
+    <header>
+        <nav>
+            <ul class='nav-bar'>
+                <li class='logo'><a href='#'><img src='./images/logo.png'/></a></li>
+                <input type='checkbox' id='check' />
+                <span class="menu">
+                    <li><a href="">Home</a></li>
+                    <li><a href="#modelos">Produtos</a></li>
+                    <li><a href="#sobrenos">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li id="authButton"><a href="login.html">Login</a></li>
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+        </header>
 
-    <h1>Login</h1>
-    <form id="loginForm">
-        <input type="email" id="emailLogin" placeholder="Email" required />
-        <input type="password" id="senhaLogin" placeholder="Senha" required />
-        <button type="submit">Login</button>
-    </form>
 
-    <script>
-        // Função para cadastrar usuário
-        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const username = document.getElementById('usernameCadastro').value;
-            const email = document.getElementById('emailCadastro').value;
-            const phone = document.getElementById('phoneCadastro').value;
-            const senha = document.getElementById('senhaCadastro').value;
+    <main>
+        <section class="first-section">
+            <div class="conteudo-principal">
+                <h1>Alugue Sua <strong>EcoScooter</strong> Hoje!</h1>
+                <h2>Descubra a liberdade sobre duas rodas com a <strong>Eco Scooters</strong>!</p>
+                    <div class="btn">
+                         <a href="#modelos" class="alugar">Alugue agora!</a>
+                        <a href="#sobrenos" class="saiba-mais">Saiba mais!</a>
+                    </div>
+            </div>
 
-            const response = await fetch('/usuarios/cadastrar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, email, phone, senha }) // Apenas username e senha
-            });
+        </section>
 
-            const data = await response.json();
-            if (response.ok) {
-                alert('Usuário cadastrado com sucesso!');
-            } else {
-                alert('Erro ao cadastrar usuário: ' + data); // Exibe mensagem de erro
-            }
-        });
+        <section id="sobrenos" class="sobre-nos">
+            <div class="main">
+                <div class="contentsobre">
+                    <h2>Sobre nós</h2>
+                    <p>Na Eco Scooters, acreditamos em uma mobilidade urbana mais inteligente e sustentável. Fundada com o propósito de oferecer soluções de transporte que respeitam o meio ambiente, nossa empresa se dedica a proporcionar uma experiência de locomoção eficiente e ecológica. Com uma frota de scooters e motos elétricas, ajudamos você a reduzir sua pegada de carbono enquanto se desloca com estilo e praticidade.</p>
+                </div>
+                <div class="img-moto">
+                    <img src="images/box.png" alt="">
+                </div>
 
-        // Função para fazer login
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('emailLogin').value;
-            const senha = document.getElementById('senhaLogin').value;
+            </div>
+        </section>
 
-            const response = await fetch('/usuarios/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha })
-            });
+        <section id="modelos" class="third-section">
+            <div class="container">
+                <h1 class="heading">Modelos</h1>
+                <div class="box-container" id="produtosContainer">
+                    <!-- <div class="box">
+                        <img src="images/produto.png" alt="">
+                          <h3>Modelo 1</h3>
+                          <p>Suporte completo durante o período de aluguel, para você viajar com tranquilidade.</p>
+                          <a href="#" class="botao" target="_blank">Alugar</a>
+                    </div>
 
-            if (response.ok) {
-                alert('Login bem-sucedido!');
-                window.location.href = 'produtos.html'; // Redireciona para a página de produtos
-            } else {
-                alert('Email ou senha incorretos.');
-            }
-        });
-    </script>
+                    <div class="box">
+                        <img src="images/produto.png" alt="">
+                          <h3>Modelo 2</h3>
+                          <p>Perfeitas para percorrer distâncias curtas e se locomover pela cidade de maneira ágil.</p>
+                          <a href="#" class="botao" target="_blank">Alugar</a>
+                    </div>
+
+                    <div class="box">
+                        <img src="images/produto.png" alt="">
+                          <h3>Modelo 3</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, aliquam!</p>
+                          <a href="#" class="botao" target="_blank">Alugar</a>
+                    </div>
+
+                    <div class="box">
+                        <img src="images/produto.png" alt="">
+                          <h3>Modelo 4</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, aliquam!</p>
+                          <a href="#" class="botao" target="_blank">Alugar</a>
+                    </div>
+                    <div class="box">
+                        <img src="images/produto.png" alt="">
+                        <h3>Modelo 5</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, aliquam!</p>
+                        <a href="#" class="botao" target="_blank">Alugar</a>
+                    </div>
+
+                    <div class="box">
+                        <img src="images/produto.png" alt="">
+                        <h3>Modelo 6</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, aliquam!</p>
+                        <a href="#" class="botao">Alugar</a>
+
+                    </div> -->
+
+                </div>
+            </div>
+
+        </section>
+        <section id="location" class="fourth-section">
+            <div class="box">
+                <h1>Nossa Localização</h1>
+                <p>A EcoScooters está localizada no centro da cidade, na Rua da Mobilidade, 123 - Centro, Sua Cidade. Nossa posição estratégica facilita a retirada e devolução das scooters, estando próxima aos principais pontos de transporte e áreas comerciais. Para conveniência adicional, oferecemos também pontos de coleta e entrega em locais-chave ao redor da cidade. Para qualquer dúvida sobre nossa localização ou para obter direções, entre em contato conosco e estaremos prontos para ajudar!</p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116902.27862699165!2d-46.63671563247242!3d-23.7046863767392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce582da261e6b1%3A0x5ceb2e6bcbc1483b!2sPaulista!5e0!3m2!1spt-BR!2sbr!4v1726504400928!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </section>
+
+        <section class="fifth-section" id="perguntas">
+            <div class="wrapper">
+                <h1>Perguntas Frequentes</h1>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    O que é a EcoScooters?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        A EcoScooters é uma empresa especializada no aluguel de scooters e motos elétricas, oferecendo uma alternativa de transporte sustentável, prática e econômica para quem deseja se locomover pela cidade de maneira ecológica. Nossa missão é promover a mobilidade urbana inteligente, reduzindo a poluição e proporcionando uma experiência confortável e acessível para nossos clientes.
+                    </p>
+                  </div>
+                </div>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    Como funciona?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        Alugar uma scooter na EcoScooters é fácil e rápido. Primeiro, escolha o modelo que melhor atende suas necessidades no nosso site. Em seguida, selecione o período de aluguel e faça sua reserva online. Após a confirmação, retire a scooter em um de nossos pontos de coleta ou agende a entrega no local desejado. Aproveite a liberdade e praticidade durante o período de aluguel e, ao final, devolva a scooter no mesmo ponto ou solicite a retirada. Nossa equipe oferece suporte 24/7 para garantir que sua experiência seja tranquila e satisfatória.
+                    </p>
+                  </div>
+                </div>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    É confiável?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        Sim, a EcoScooters é totalmente confiável. Priorizamos a segurança e a satisfação dos nossos clientes em todas as etapas do processo. Nossas scooters são regularmente mantidas e passam por inspeções rigorosas para garantir que estejam em perfeito estado de funcionamento. Além disso, oferecemos suporte 24/7 para resolver qualquer questão ou necessidade que você possa ter durante o período de aluguel. Sua segurança e conforto são nossa prioridade, e estamos comprometidos em proporcionar uma experiência de transporte segura e confiável.
+                    </p>
+                  </div>
+                </div>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    O que devo fazer se ocorrer um problema com a scooter?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        Se você encontrar qualquer problema com a scooter durante o período de aluguel, entre em contato imediatamente com nossa equipe de suporte 24/7. Estamos disponíveis para ajudar a resolver quaisquer problemas e garantir que você continue a ter uma experiência tranquila.
+                    </p>
+                  </div>
+                </div>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    Posso cancelar ou alterar minha reserva?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        Sim, você pode cancelar ou alterar sua reserva com antecedência. A política de cancelamento pode variar, então verifique os detalhes específicos no momento da reserva. Para alterações ou cancelamentos, entre em contato conosco através do nosso site ou pelo telefone.
+
+                    </p>
+                  </div>
+                </div>
+          
+                <div class="faq">
+                  <button class="accordion">
+                    Qual é a idade mínima para alugar uma scooter?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div class="pannel">
+                    <p>
+                        A idade mínima para alugar uma scooter na EcoScooters é de 18 anos. Para alugar, é necessário apresentar um documento de identidade válido e, em alguns casos, uma carteira de habilitação. Verifique os requisitos específicos no momento da reserva.
+                    </p>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobrenos">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ajuda</h4>
+                    <ul>
+                        <li><a href="#location">Localização</a></li>
+                        <li><a href="#perguntas">Perguntas</a></li>
+                </div>
+                <div class="footer-col">
+                    <h4>Alugar</h4>
+                    <ul>
+                        <li><a href="#modelos">Modelos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+    
 </body>
+<script src="./scripts/script.js" defer></script>
 </html>

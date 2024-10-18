@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form id="cadastroForm">
+            <input type="text" id="usernameCadastro" placeholder="Nome de Usuário" required />
+            <input type="email" id="emailCadastro" placeholder="Email" required />
+            <input type="tel" id="phoneCadastro" placeholder="Telefone" required />
+            <input type="password" id="senhaCadastro" placeholder="Senha" required />
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+    </div>
+
+    <script>
+        // Função para cadastrar usuário
+        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('usernameCadastro').value;
+            const email = document.getElementById('emailCadastro').value;
+            const phone = document.getElementById('phoneCadastro').value;
+            const senha = document.getElementById('senhaCadastro').value;
+
+            const response = await fetch('/usuarios/cadastrar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, email, phone, senha })
+            });
+
+            if (response.ok) {
+                alert('Usuário cadastrado com sucesso!');
+                window.location.href = 'login.html'; // Redireciona para a página de login
+            } else {
+                alert('Erro ao cadastrar usuário.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -17,5 +17,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
   }
 }

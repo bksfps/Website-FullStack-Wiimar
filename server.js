@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose'; // Para a conexão com o MongoDB
 import fetch from 'node-fetch'; // Agora usa a sintaxe de importação
 import Usuario from './models/Usuario.js'; // Importando o modelo de Usuário
+import Produto from './models/produto.js';
 
 const app = express();
 const PORT = 3000;
@@ -21,6 +22,11 @@ mongoose.connect('mongodb://localhost:27017/estoque', {
 })
 .then(() => console.log('Conectado ao MongoDB'))
 .catch(err => console.error('Erro ao conectar ao MongoDB', err));
+
+// Define a página inicial como a tela de login
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: 'public' });
+});
 
 // Redireciona requisições do front-end para a API Spring Boot
 app.post('/api/produtos', async (req, res) => {
@@ -84,6 +90,15 @@ app.post('/usuarios/login', async (req, res) => {
         res.status(200).send('Login bem-sucedido');
     } else {
         res.status(401).send('Usuário ou senha incorretos');
+    }
+});
+
+app.get('/api/produtos', async (req, res) => {
+    try {
+        const produtos = await Produto.find(); // Busca todos os produtos no banco de dados
+        res.json(produtos); // Retorna os produtos em formato JSON
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar produtos' });
     }
 });
 

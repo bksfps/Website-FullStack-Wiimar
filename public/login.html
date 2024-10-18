@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="email" id="emailLogin" placeholder="Email" required />
+            <input type="password" id="senhaLogin" placeholder="Senha" required />
+            <button type="submit">Login</button>
+        </form>
+        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </div>
+
+    <script>
+        // Função para fazer login
+            document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('emailLogin').value;
+        const senha = document.getElementById('senhaLogin').value;
+
+        const response = await fetch('/usuarios/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        });
+
+        if (response.ok) {
+            alert('Login bem-sucedido!');
+            localStorage.setItem('loggedIn', true); // Salva estado de login
+            window.location.href = 'index.html'; // Redireciona para a homepage
+        } else {
+            alert('Erro ao fazer login: Usuário ou senha incorretos.');
+        }
+    });
+    </script>
+</body>
+</html>
