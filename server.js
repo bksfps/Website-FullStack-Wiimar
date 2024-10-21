@@ -102,6 +102,40 @@ app.get('/api/produtos', async (req, res) => {
     }
 });
 
+// Rota para a página de detalhes do produto
+app.get('/produto/:id', async (req, res) => {
+    const produtoId = req.params.id;
+
+    try {
+        const produto = await Produto.findById(produtoId); // Busca o produto no banco de dados pelo ID
+        if (produto) {
+            res.sendFile('produto.html', { root: 'public' });
+        } else {
+            res.status(404).send('Produto não encontrado');
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar produto' });
+    }
+});
+
+// Rota para buscar um produto pelo ID
+app.get('/api/produtos/:id', async (req, res) => {
+    const produtoId = req.params.id;
+
+    try {
+        const produto = await Produto.findById(produtoId);
+        if (produto) {
+            res.json(produto);
+        } else {
+            res.status(404).json({ error: 'Produto não encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar produto' });
+    }
+});
+
+
+
 // Inicia o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);

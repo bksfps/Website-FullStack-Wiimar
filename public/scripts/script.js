@@ -48,25 +48,38 @@ async function carregarProdutos() {
     // Limpa o contêiner antes de adicionar os produtos
     produtosContainer.innerHTML = '';
 
-    // Itera sobre os produtos e adiciona ao contêiner
-    produtos.forEach(produto => {
-        const produtoDiv = document.createElement('div');
-        produtoDiv.classList.add('box');
+// Itera sobre os produtos e adiciona ao contêiner
+produtos.forEach(produto => {
+    const produtoDiv = document.createElement('div');
+    produtoDiv.classList.add('box');
 
-        // Formatação do preço
-        const precoFormatado = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+    // Formatação do preço
+    const precoFormatado = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
 
-        // Adiciona o HTML do produto
-        produtoDiv.innerHTML = `
-            <img src="${produto.imagemUrl}" alt="${produto.nome}">
-            <h3>${produto.nome}</h3>
-            <p>${produto.descricao}</p>
-            <p><strong>Preço:</strong> ${precoFormatado}</p> <!-- Exibe o preço -->
-            <a href="#" class="botao">Alugar</a>
-        `;
+    // Adiciona o HTML do produto, incluindo o id no botão
+    produtoDiv.innerHTML = `
+        <img src="${produto.imagemUrl}" alt="${produto.nome}">
+        <h3>${produto.nome}</h3>
+        <p>${produto.descricao}</p>
+        <p>${precoFormatado}</p> <!-- Exibe o preço -->
+        <a href="#" class="botao" data-id="${produto._id}">Alugar</a> <!-- Adiciona o ID como data attribute -->
+    `;
 
-        produtosContainer.appendChild(produtoDiv);
+    produtosContainer.appendChild(produtoDiv);
+});
+
+// Adiciona o evento de clique nos botões "Alugar"
+const botoesAlugar = document.querySelectorAll('.botao');
+
+botoesAlugar.forEach(botao => {
+    botao.addEventListener('click', (event) => {
+        event.preventDefault();  // Impede o comportamento padrão do link
+        const produtoId = event.target.getAttribute('data-id'); // Obtém o ID do produto
+        
+        window.location.href = `produto.html?id=${produtoId}`;
     });
+});
+
 }
 
 // Chama a função ao carregar a página
