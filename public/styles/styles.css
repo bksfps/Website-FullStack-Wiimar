@@ -476,16 +476,16 @@ strong {
     background-color: var(--green);
 }
 
-.fourth-section .box {
+.fourth-section .sec {
     max-width: 600px;
 }
 
-.fourth-section .box h1 {
+.fourth-section .sec h1 {
     font-size: 3rem;
     padding: 1.5rem;
 }
 
-.fourth-section .box p {
+.fourth-section .sec p {
     font-size: 1.5rem;
     padding: 2rem;
 }
@@ -733,6 +733,84 @@ iframe:hover {
     text-decoration: none;
     border-radius: 5px;
 }
+
+#produtos-container {
+    display: flex; /* Ativa o Flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    margin: 0 auto; /* Centraliza o contêiner */
+}
+
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#search-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+
+.box {
+    width: 80%; /* Define a largura da box */
+    max-width: 400px; /* Limita a largura máxima */
+    margin: 20px auto; /* Centraliza a box com margem superior/inferior */
+    padding: 20px; /* Adiciona espaço interno */
+    border: 1px solid #ccc; /* Adiciona uma borda */
+    border-radius: 8px; /* Arredonda os cantos da box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
+    background-color: #fff; /* Define a cor de fundo */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.box:hover {
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+.box img {
+    width: 200px; /* Largura fixa */
+    height: 200px; /* Altura fixa */
+    object-fit: cover; /* Cobre a área definida mantendo a proporção */
+    border-radius: 4px; /* Arredondar os cantos da imagem */
+}
+
+.box h3 {
+    font-size: 1.2em; /* Tamanho da fonte para o título */
+    margin: 12px 0; /* Espaçamento acima e abaixo do título */
+    padding: 5px;
+}
+
+.box p {
+    font-size: 1em; /* Tamanho da fonte para a descrição */
+    color: var(--cor-texto-descricao); /* Cor do texto da descrição */
+    margin-bottom: var(--margin); /* Espaçamento abaixo da descrição */
+    padding: 5px;
+}
+
+#produtos-container .botao{
+    display: inline-block; /* Para manter o botão como um bloco inline */
+    padding: 10px 16px; /* Espaçamento interno do botão */
+    background-color: var(--green); /* Cor de fundo do botão */
+    color: green; /* Cor do texto do botão */
+    text-decoration: none; /* Remover sublinhado do link */
+    border-radius: 4px; /* Arredondar os cantos do botão */
+    transition: background-color var(--transition); /* Transição suave para a cor de fundo */
+    border: 1px solid black;
+}
+
+#produtos-container .botao:hover {
+    background-color: var(--cor-fundo-botao-hover); /* Cor do botão ao passar o mouse */
+}
+
 /* #zap:hover {
     fill: var(--green);
     transition: 0.4s ease-in-out;

@@ -1,5 +1,4 @@
 // URL da API
-
 const apiUrl = 'http://localhost:3000/api/produtos'; // Ajuste conforme seu ambiente
 
 // Elementos do DOM
@@ -29,21 +28,21 @@ function exibirProdutos(produtosFiltrados) {
         return;
     }
 
-    // Itera sobre os produtos e cria o HTML dinamicamente
-    produtos.forEach(produto => {
+    // Itera sobre os produtos filtrados e cria o HTML dinamicamente
+    produtosFiltrados.forEach(produto => {
         const produtoDiv = document.createElement('div');
         produtoDiv.classList.add('box');
     
         // Formatação do preço
         const precoFormatado = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
     
-        // Adiciona o HTML do produto com o caminho correto da imagem
+        // Adiciona o HTML do produto
         produtoDiv.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.nome}">
+            <img src="${produto.imagemUrl}" alt="${produto.nome}">
             <h3>${produto.nome}</h3>
             <p>${produto.descricao}</p>
-            <p>${precoFormatado}</p> <!-- Exibe o preço -->
-            <a href="#" class="botao">Alugar</a>
+            <p>${precoFormatado}</p>
+            <a href="#" class="botao">Comprar</a>
         `;
     
         produtosContainer.appendChild(produtoDiv);
