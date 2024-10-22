@@ -51,3 +51,16 @@ document.getElementById('calcular-frete').addEventListener('click', function() {
         alert('Por favor, insira um CEP válido.');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoComprar = document.getElementById('botao-comprar');
+    
+    botaoComprar.addEventListener('click', function() {
+        if (produtoId) {
+            // Redireciona o usuário para a página de pagamento com o ID do produto na URL
+            window.location.href = `pagamento.html?id=${produtoId}`;
+        } else {
+            console.error('ID do produto não encontrado.');
+        }
+    });
+});

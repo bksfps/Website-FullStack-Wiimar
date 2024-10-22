@@ -42,7 +42,7 @@ function exibirProdutos(produtosFiltrados) {
             <h3>${produto.nome}</h3>
             <p>${produto.descricao}</p>
             <p>${precoFormatado}</p>
-            <a href="pagamento.html?id=${produto._id}" class="botao">Comprar</a>
+            <a href="produto.html?id=${produto._id}" class="botao">Comprar</a>
         `;
     
         produtosContainer.appendChild(produtoDiv);
