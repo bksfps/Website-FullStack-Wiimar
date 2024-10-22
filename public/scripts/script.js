@@ -65,7 +65,7 @@ async function carregarProdutos() {
             <h3>${produto.nome}</h3>
             <p>${produto.descricao}</p>
             <p>${precoFormatado}</p> <!-- Exibe o preço -->
-            <a href="#" class="botao" data-id="${produto._id}">Comprar</a> <!-- Adiciona o ID como data attribute -->
+            <a href="produto.html?id=${produto._id}" class="botao" data-id="${produto._id}">Comprar</a>
         `;
 
         produtosContainer.appendChild(produtoDiv);
