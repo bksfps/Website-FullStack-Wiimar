@@ -1,7 +1,4 @@
 // Pega o ID do produto da URL
-const urlParams = new URLSearchParams(window.location.search);
-
-
 function getProdutoIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id'); // Retorna o valor do parâmetro 'id'
@@ -25,6 +22,24 @@ if (produtoId) {
         });
 }
 
+// Função para calcular o frete chamando o back-end
+document.getElementById('calcular-frete').addEventListener('click', function() {
+    const cepDestino = document.getElementById('cep').value;
 
-// Carrega o produto ao abrir a página
-carregarProduto();
+    if (cepDestino) {
+        fetch(`/calcular-frete?cepDestino=${cepDestino}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('resultado-frete').innerText = 
+                `Frete: R$ ${data.valorFrete} - Prazo: ${data.prazoEntrega} dias`;
+        })
+        .catch(error => {
+            console.error('Erro ao calcular o frete:', error);
+            document.getElementById('resultado-frete').innerText = 'Erro ao calcular o frete.';
+        });
+    } else {
+        alert('Por favor, insira um CEP válido.');
+    }
+});

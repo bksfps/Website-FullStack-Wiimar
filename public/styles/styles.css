@@ -811,6 +811,105 @@ iframe:hover {
     background-color: var(--cor-fundo-botao-hover); /* Cor do botão ao passar o mouse */
 }
 
+
+#check {
+    display: none;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    position: relative; /* Torna o posicionamento do ícone relativo ao input */
+    max-width: 500px;
+    margin: 20px auto;
+}
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px; /* Ajuste a posição à direita */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza o ícone verticalmente */
+    color: #888; /* Cor da lupa */
+    font-size: 18px;
+    pointer-events: none; /* Garante que o clique passe para o input */
+}
+
+/* Estilos para a seção de filtros */
+#filtros {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#filtros h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#filtros h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #555;
+}
+
+#filtros label {
+    font-size: 16px;
+    color: #555;
+}
+
+#filtros input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.payment-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.payment-container h2 {
+    margin-top: 20px;
+}
+
+.payment-container label {
+    display: block;
+    margin-top: 10px;
+}
+
+.payment-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.payment-container button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* #zap:hover {
     fill: var(--green);
     transition: 0.4s ease-in-out;
