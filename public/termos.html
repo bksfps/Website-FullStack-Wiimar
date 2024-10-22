@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Cadastro</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
-    <title>Login</title>
 </head>
-<body>
+<body class="termos">
     <header>
         <nav>
             <ul class='nav-bar'>
                 <li class='logo'><a href='#'><img src='./images/logo.jpeg'/></a></li>
                 <input type='checkbox' id='check' />
                 <span class="menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Home</a></li>
                     <li><a href="lista.html">Produtos</a></li>
                     <li><a href="#sobrenos">Sobre</a></li>
                     <li><a href="#">Contato</a></li>
@@ -26,16 +24,29 @@
             </ul>
         </nav>
         </header>
-    <div class="container-login">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <input type="email" id="emailLogin" placeholder="Email" required />
-            <input type="password" id="senhaLogin" placeholder="Senha" required />
-            <button type="submit">Login</button>
-        </form>
-        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
-    </div>
+    <div class="container-termos">
+        <h1>Termos de Cadastro</h1>
+        <p>Por favor, leia atentamente os seguintes termos antes de se cadastrar:</p>
+        <h2>1. Aceitação dos Termos</h2>
+        <p>Ao se cadastrar, você aceita os termos e condições estabelecidos neste documento.</p>
+        
+        <h2>2. Coleta de Dados</h2>
+        <p>Coletamos informações pessoais como nome, email e telefone para fornecer serviços e suporte adequados.</p>
 
+        <h2>3. Uso das Informações</h2>
+        <p>As informações coletadas serão utilizadas para melhorar a sua experiência, enviar atualizações e responder a solicitações.</p>
+
+        <h2>4. Segurança</h2>
+        <p>Tomamos precauções para proteger suas informações pessoais. No entanto, nenhuma transmissão pela internet é 100% segura.</p>
+
+        <h2>5. Alterações nos Termos</h2>
+        <p>Podemos modificar estes termos a qualquer momento. As alterações serão publicadas nesta página.</p>
+
+        <h2>6. Contato</h2>
+        <p>Se você tiver dúvidas sobre estes termos, entre em contato conosco pelo email: contato@seusite.com.</p>
+
+        <button onclick="window.close()">Fechar</button>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -68,28 +79,5 @@
             </div>
         </div>
    </footer>
-   <script>
-    // Função para fazer login
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('emailLogin').value;
-    const senha = document.getElementById('senhaLogin').value;
-
-    const response = await fetch('/usuarios/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, senha })
-    });
-
-    if (response.ok) {
-        alert('Login bem-sucedido!');
-        localStorage.setItem('loggedIn', true); // Salva estado de login
-        window.location.href = 'index.html'; // Redireciona para a homepage
-    } else {
-        alert('Erro ao fazer login: Usuário ou senha incorretos.');
-    }
-});
-</script>
-<script src="scripts/script.js" defer></script>
 </body>
 </html>
