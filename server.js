@@ -6,6 +6,7 @@ import Usuario from './models/Usuario.js'; // Importando o modelo de Usuário
 import Produto from './models/produto.js';
 
 const app = express();
+app.use(express.static('public'));
 const PORT = 3000;
 
 // Middleware para servir arquivos estáticos (HTML, CSS, JS)
