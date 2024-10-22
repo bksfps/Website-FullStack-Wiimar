@@ -1035,6 +1035,24 @@ input[type="password"]:focus {
     background-color: #0056b3;
 }
 
+.ver-mais-container {
+    text-align: center; /* Centraliza o botão */
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+.botao-ver-mais {
+    background-color: var(--green); /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno reduzido */
+    text-decoration: none; /* Remove sublinhado */
+    border-radius: 3px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Efeito de transição */
+    font-size: 0.9em; /* Tamanho da fonte ajustado */
+}
+
+.botao-ver-mais:hover {
+    background-color: transparent; /* Cor ao passar o mouse */
+}
 
 
 /* #zap:hover {

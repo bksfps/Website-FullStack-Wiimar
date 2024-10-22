@@ -39,6 +39,7 @@ function logout() {
 
 
 // Função para buscar os produtos do banco de dados
+// Função para buscar os produtos do banco de dados
 async function carregarProdutos() {
     const response = await fetch('/api/produtos'); // Busca os produtos da API
     const produtos = await response.json();
@@ -48,39 +49,44 @@ async function carregarProdutos() {
     // Limpa o contêiner antes de adicionar os produtos
     produtosContainer.innerHTML = '';
 
-// Itera sobre os produtos e adiciona ao contêiner
-produtos.forEach(produto => {
-    const produtoDiv = document.createElement('div');
-    produtoDiv.classList.add('box');
+    // Limita a exibição a no máximo 6 produtos
+    const produtosParaMostrar = produtos.slice(0, 6);
 
-    // Formatação do preço
-    const precoFormatado = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+    // Itera sobre os produtos e adiciona ao contêiner
+    produtosParaMostrar.forEach(produto => {
+        const produtoDiv = document.createElement('div');
+        produtoDiv.classList.add('box');
 
-    // Adiciona o HTML do produto, incluindo o id no botão
-    produtoDiv.innerHTML = `
-        <img src="${produto.imagemUrl}" alt="${produto.nome}">
-        <h3>${produto.nome}</h3>
-        <p>${produto.descricao}</p>
-        <p>${precoFormatado}</p> <!-- Exibe o preço -->
-        <a href="#" class="botao" data-id="${produto._id}">Comprar</a> <!-- Adiciona o ID como data attribute -->
-    `;
+        // Formatação do preço
+        const precoFormatado = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
 
-    produtosContainer.appendChild(produtoDiv);
-});
+        // Adiciona o HTML do produto
+        produtoDiv.innerHTML = `
+            <img src="${produto.imagemUrl}" alt="${produto.nome}">
+            <h3>${produto.nome}</h3>
+            <p>${produto.descricao}</p>
+            <p>${precoFormatado}</p> <!-- Exibe o preço -->
+            <a href="#" class="botao" data-id="${produto._id}">Comprar</a> <!-- Adiciona o ID como data attribute -->
+        `;
 
-// Adiciona o evento de clique nos botões "Alugar"
-const botoesAlugar = document.querySelectorAll('.botao');
-
-botoesAlugar.forEach(botao => {
-    botao.addEventListener('click', (event) => {
-        event.preventDefault();  // Impede o comportamento padrão do link
-        const produtoId = event.target.getAttribute('data-id'); // Obtém o ID do produto
-
-        window.location.href = `produto.html?id=${produtoId}`;
+        produtosContainer.appendChild(produtoDiv);
     });
-});
 
+    // REMOVA ESTA PARTE
+    // Adiciona o botão "Ver Mais"
+    /*
+    const verMaisBtn = document.createElement('a');
+    verMaisBtn.href = 'lista.html'; // Redireciona para lista.html
+    verMaisBtn.classList.add('ver-mais'); // Adiciona uma classe para estilização
+    verMaisBtn.innerText = 'Ver Mais';
+    produtosContainer.appendChild(verMaisBtn);
+    */
 }
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', carregarProdutos);
+
+
 
 // Chama a função ao carregar a página
 document.addEventListener('DOMContentLoaded', carregarProdutos);
