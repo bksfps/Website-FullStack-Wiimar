@@ -20,11 +20,19 @@
                     <li><a href="#sobrenos">Sobre</a></li>
                     <li><a href="#">Contato</a></li>
                     <li id="authButton"><a href="login.html">Login</a></li>
+                    <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
                     <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
                 </span>
                 <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
             </ul>
         </nav>
+        
+        <!-- Dropdown para exibir os itens do carrinho -->
+        <div id="dropdown-carrinho" class="dropdown-carrinho">
+            <h4>Itens no Carrinho:</h4>
+            <div id="itens-carrinho"></div>
+            <button id="ver-carrinho">Ver Carrinho</button>
+        </div>
     </header>
     
     <main>
@@ -37,6 +45,7 @@
                 <p id="produto-descricao">Descrição do Produto</p>
                 <p id="produto-preco">R$ 0,00</p>
                 <a href="#" id="botao-comprar" class="botao-comprar">Comprar</a>
+                <button id="botao-adicionar" class="botao">Adicionar ao Carrinho</button>
             </div>
                 <!-- Campo para inserir CEP -->
                 <div class="calculo-frete">

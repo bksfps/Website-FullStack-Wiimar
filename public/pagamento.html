@@ -8,7 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>Página de Pagamento</h1>
+        <nav>
+            <ul class='nav-bar'>
+                <li class='logo'><a href='#'><img src='./images/logo.jpeg'/></a></li>
+                <input type='checkbox' id='check' />
+                <span class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lista.html">Produtos</a></li>
+                    <li><a href="#sobrenos">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li id="authButton"><a href="login.html">Login</a></li>
+                    <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+        
+        <!-- Dropdown para exibir os itens do carrinho -->
+        <div id="dropdown-carrinho" class="dropdown-carrinho">
+            <h4>Itens no Carrinho:</h4>
+            <div id="itens-carrinho"></div>
+            <button id="ver-carrinho">Ver Carrinho</button>
+        </div>
     </header>
 
     <div class="payment-container">

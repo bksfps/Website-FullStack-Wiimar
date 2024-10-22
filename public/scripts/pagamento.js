@@ -1,29 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const produtoId = params.get('id');
-
-    if (produtoId) {
-        buscarProduto(produtoId);
-    }
+    carregarProdutosParaPagamento();
 });
 
-// Função para buscar o produto específico
-async function buscarProduto(id) {
-    try {
-        const response = await fetch(`http://localhost:3000/api/produtos/${id}`); // Ajuste conforme sua API
-        const produto = await response.json();
-        exibirResumoProduto(produto);
-    } catch (error) {
-        console.error('Erro ao buscar o produto:', error);
-    }
-}
-
-// Função para exibir o resumo do produto
-function exibirResumoProduto(produto) {
+// Função para carregar os produtos do carrinho
+function carregarProdutosParaPagamento() {
+    const produtosParaPagamento = JSON.parse(localStorage.getItem('produtosParaPagamento')) || [];
     const produtoResumo = document.getElementById('produto-resumo');
-    produtoResumo.innerHTML = `
-        <p><strong>Nome:</strong> ${produto.nome}</p>
-        <p><strong>Preço:</strong> R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
-        <p><strong>Descrição:</strong> ${produto.descricao}</p>
-    `;
+
+    produtoResumo.innerHTML = ''; // Limpa o contêiner
+
+    if (produtosParaPagamento.length === 0) {
+        produtoResumo.innerHTML = '<p>Nenhum produto para exibir.</p>';
+        return;
+    }
+
+    let total = 0;
+
+    // Exibir os produtos e calcular o total
+    produtosParaPagamento.forEach(produto => {
+        const precoTotal = produto.preco * produto.quantidade;
+        total += precoTotal;
+        
+        const produtoDiv = document.createElement('div');
+        produtoDiv.innerHTML = `
+            <h3>${produto.nome}</h3>
+            <p>Quantidade: ${produto.quantidade}</p>
+            <p>Preço: R$ ${precoTotal.toFixed(2).replace('.', ',')}</p>
+        `;
+        produtoResumo.appendChild(produtoDiv);
+    });
+
+    // Exibir o total final
+    const totalDiv = document.createElement('div');
+    totalDiv.innerHTML = `<h3>Total: R$ ${total.toFixed(2).replace('.', ',')}</h3>`;
+    produtoResumo.appendChild(totalDiv);
 }

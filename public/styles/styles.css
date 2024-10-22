@@ -1052,3 +1052,70 @@ input[type="password"]:focus {
 .botao-ver-mais:hover {
     background-color: transparent; 
 }
+
+.dropdown-carrinho {
+    display: none; /* Escondido por padrão */
+    position: absolute; /* Para posicionar em relação ao ícone do carrinho */
+    background-color: white; /* Ou a cor que desejar */
+    border: 1px solid #ccc; /* Para dar destaque ao contêiner */
+    z-index: 1000; /* Para ficar acima de outros elementos */
+    width: 200px; /* Defina uma largura para o dropdown */
+    top: 60px; /* Ajuste para a altura do cabeçalho se necessário */
+    right: 20px; /* Ajuste a posição em relação ao ícone do carrinho */
+}
+
+
+.dropdown-carrinho.show {
+    display: block; /* Mostra o dropdown quando a classe 'show' está presente */
+}
+
+.dropdown-carrinho.active {
+    display: block;
+}
+
+.dropdown-carrinho h4 {
+    margin: 0 0 10px 0;
+}
+
+#itens-carrinho {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#carrinho-quantidade {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.produto-carrinho {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.produto-carrinho img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.produto-carrinho h3 {
+    flex-grow: 1; /* Faz o título crescer para ocupar o espaço restante */
+}
+
+.quantidade-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.quantidade-container button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
