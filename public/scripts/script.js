@@ -39,7 +39,6 @@ function logout() {
 
 
 // Função para buscar os produtos do banco de dados
-// Função para buscar os produtos do banco de dados
 async function carregarProdutos() {
     const response = await fetch('/api/produtos'); // Busca os produtos da API
     const produtos = await response.json();
@@ -72,15 +71,6 @@ async function carregarProdutos() {
         produtosContainer.appendChild(produtoDiv);
     });
 
-    // REMOVA ESTA PARTE
-    // Adiciona o botão "Ver Mais"
-    /*
-    const verMaisBtn = document.createElement('a');
-    verMaisBtn.href = 'lista.html'; // Redireciona para lista.html
-    verMaisBtn.classList.add('ver-mais'); // Adiciona uma classe para estilização
-    verMaisBtn.innerText = 'Ver Mais';
-    produtosContainer.appendChild(verMaisBtn);
-    */
 }
 
 // Chama a função ao carregar a página

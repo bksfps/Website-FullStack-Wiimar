@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import fetch from 'node-fetch';
 import Usuario from './models/Usuario.js';
 import Produto from './models/produto.js';
-import { calcularPrecoPrazo } from 'correios-brasil'; // Importa o pacote correios-brasil
+import { calcularPrecoPrazo } from 'correios-brasil';
 
 
 const app = express();
@@ -131,7 +131,6 @@ app.post('/usuarios/cadastrar', async (req, res) => {
     }
 });
 
-// Outras rotas de produtos e usuários...
 
 // Inicia o servidor
 app.listen(PORT, () => {
