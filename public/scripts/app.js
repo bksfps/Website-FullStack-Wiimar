@@ -76,7 +76,21 @@ function aplicarFiltros() {
     exibirProdutos(produtosFiltrados); // Exibe os produtos filtrados
 }
 
+// Função para ativar o filtro da categoria a partir da URL
+function ativarFiltroCategoria() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get('categoria'); // Obtém o parâmetro "categoria" da URL
 
+    if (categoria) {
+        // Marca a checkbox correspondente à categoria
+        const checkboxCategoria = document.querySelector(`.filtro-categoria[value="${categoria}"]`);
+        if (checkboxCategoria) {
+            checkboxCategoria.checked = true;
+        }
+    }
+
+    aplicarFiltros(); // Aplica os filtros após marcar as checkboxes
+}
 
 // Evento de busca
 searchInput.addEventListener('input', aplicarFiltros);
@@ -88,3 +102,6 @@ document.querySelectorAll('.filtro-categoria, .filtro-preco').forEach(checkbox =
 
 // Inicializa a busca e exibição de produtos ao carregar a página
 buscarProdutos();
+
+// Chama a função para ativar o filtro de categoria com base na URL
+ativarFiltroCategoria();
