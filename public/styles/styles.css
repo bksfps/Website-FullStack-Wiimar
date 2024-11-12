@@ -378,70 +378,6 @@ h2 {
 }
     
 
-.container .box-container .box {
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    border-radius: 30px;
-    text-align: center;
-    padding: 30px 20px;
-    flex: 1 1 270px;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--white);
-}
-
-.container .box-container .box img {
-    width: 20vw;
-    height: 20vw;
-}
-
-.container .box-container .box h3 {
-    padding: 20px;
-    font-size: x-large;
-}
-
-.container .box-container .box p {
-    padding: 15px;
-}
-
-.container .box-container .box .botao {
-    margin-top: 10px;
-    display: inline-block;
-    background-color: var(--green);
-    color: #fff;
-    font-size: 17px;
-    border-radius: 5px;
-    padding: 8px 25px;
-}
-
-.container .box-container .box .botao:hover {
-    box-shadow: 0 10px 15px rgba(0,0,0,.2);
-}
-
-@media (max-width: 768px) {
-    .third-section .box img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .third-section .box img {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        margin: 0 auto;
-        display: block;
-    }
-
-    .third-section .box {
-        width: 100%;
-        padding: 10px;
-    }
-}
-
-
 
 /* Sobre nós */
 
@@ -648,16 +584,29 @@ h2 {
     justify-content: space-between;
     align-items: flex-start;
     margin: 20px 0;
+    flex-wrap: wrap; /* Permite o layout se adaptar em telas menores */
 }
 
 .produto-imagem-container {
     flex: 1;
     max-width: 50%;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .produto-imagem-container img {
     width: 100%;
     height: auto;
+    border: 4px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-imagem-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .produto-info-container {
@@ -684,19 +633,258 @@ h2 {
 .botao-comprar {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--green);
+    background-color: var(--blue);
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-comprar:hover {
+    background-color: var(--dark-blue);
+    color: black;
+    border: 1px solid black;
 }
 
 #produtos-container {
-    display: flex; 
-    flex-wrap: wrap; 
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
 }
 
+.calculo-frete {
+    margin-top: 30px;
+    background-color: #f1faff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+.calculo-frete label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.calculo-frete input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculo-frete input[type="text"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 179, 0.5);
+    outline: none;
+}
+
+.calculo-frete button {
+    padding: 12px 20px;
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calculo-frete button:hover {
+    background-color: var(--bluedark);
+    transform: translateY(-2px);
+}
+
+.calculo-frete p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.calculo-frete input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+#produtos-relacionados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#escrita {
+    padding: 10px;
+}
+
+#escrita h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.produto-relacionado {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 22%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-relacionado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produto-relacionado img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.produto-relacionado h4 {
+    font-size: 18px;
+    color: #333;
+    padding: 15px;
+    margin: 0;
+}
+
+.produto-relacionado p {
+    font-size: 16px;
+    color: black;
+    padding: 0 15px;
+    margin: 5px 0;
+}
+
+.produto-relacionado .botao {
+    display: block;
+    padding: 10px;
+    margin: 15px 15px 15px 15px;
+    text-align: center;
+    background-color: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.produto-relacionado .botao:hover {
+    background-color: var(--bluedark);
+}
+
+/* Responsividade */
+
+@media (max-width: 1024px) {
+    #produto-detalhes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto-imagem-container, .produto-info-container {
+        max-width: 100%;
+        flex: none;
+    }
+
+    .produto-info-container {
+        padding: 10px;
+    }
+
+    .produto-imagem-container {
+        margin-bottom: 20px;
+    }
+
+    .produto-relacionado {
+        width: 45%; /* Aumenta o tamanho dos produtos em telas menores */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #produto-detalhes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto-info-container {
+        padding: 10px;
+    }
+
+    .produto-imagem-container {
+        margin-bottom: 20px;
+    }
+
+    .produto-relacionado {
+        width: 100%; /* Exibe um produto por linha em telas menores */
+        margin-bottom: 20px;
+    }
+
+    #produtos-relacionados {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calculo-frete {
+        max-width: 100%;
+        margin: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #produto-nome {
+        font-size: 20px;
+    }
+
+    #produto-descricao {
+        font-size: 14px;
+    }
+
+    #produto-preco {
+        font-size: 18px;
+    }
+
+    .botao-comprar {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .produto-relacionado h4 {
+        font-size: 16px;
+    }
+
+    .produto-relacionado p {
+        font-size: 14px;
+    }
+
+    .produto-relacionado .botao {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+
+/* Filtros */
 .search-container {
     text-align: center;
     margin: 20px 0;
@@ -755,8 +943,8 @@ h2 {
 #produtos-container .botao{
     display: inline-block; 
     padding: 10px 16px; 
-    background-color: var(--green); 
-    color: green;
+    background-color: var(--blue); 
+    color: white;
     text-decoration: none; 
     border-radius: 4px; 
     transition: background-color var(--transition); 
@@ -765,6 +953,7 @@ h2 {
 
 #produtos-container .botao:hover {
     background-color: var(--cor-fundo-botao-hover);
+    color: black;
 }
 
 
@@ -1026,62 +1215,87 @@ input[type="password"]:focus {
     background-color: transparent; 
 }
 
+/* Estilos do Dropdown do Carrinho */
 .dropdown-carrinho {
-    display: none; /* Escondido por padrão */
-    position: absolute; /* Para posicionar em relação ao ícone do carrinho */
-    background-color: white; /* Ou a cor que desejar */
-    border: 1px solid #ccc; /* Para dar destaque ao contêiner */
-    z-index: 1000; /* Para ficar acima de outros elementos */
-    width: 200px; /* Defina uma largura para o dropdown */
-    top: 60px; /* Ajuste para a altura do cabeçalho se necessário */
-    right: 20px; /* Ajuste a posição em relação ao ícone do carrinho */
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    border-radius: 8px;
+    z-index: 1000;
+    width: 280px;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
 }
 
-
-.dropdown-carrinho.show {
-    display: block; /* Mostra o dropdown quando a classe 'show' está presente */
-}
-
+.dropdown-carrinho.show,
 .dropdown-carrinho.active {
     display: block;
 }
 
 .dropdown-carrinho h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: 600;
 }
 
+/* Itens do carrinho */
 #itens-carrinho {
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
+    padding: 5px 0;
 }
 
+/* Quantidade do Carrinho */
 #carrinho-quantidade {
-    background-color: red;
+    background-color: #e53935;
     color: white;
-    padding: 2px 5px;
+    padding: 3px 7px;
     border-radius: 50%;
-    font-size: 12px;
+    font-size: 0.85em;
+    font-weight: bold;
+    position: absolute;
+    top: 0;  /* Altere o valor para ajustar verticalmente */
+    right: -5px; /* Altere o valor para ajustar horizontalmente */
+    transform: translate(50%, -50%); /* Ajuste para centralizar melhor em relação ao canto superior direito */
 }
 
+
+/* Estilos para os produtos no carrinho */
 .produto-carrinho {
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 8px;
-    padding: 16px;
+    padding: 10px;
     margin: 10px 0;
     display: flex;
     align-items: center;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+
+.produto-carrinho:hover {
+    background-color: #f1f1f1;
 }
 
 .produto-carrinho img {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
 }
 
 .produto-carrinho h3 {
-    flex-grow: 1; /* Faz o título crescer para ocupar o espaço restante */
+    flex-grow: 1;
+    font-size: 1em;
+    color: #333;
+    margin: 0;
 }
 
+/* Container de Quantidade */
 .quantidade-container {
     display: flex;
     align-items: center;
@@ -1089,6 +1303,92 @@ input[type="password"]:focus {
 }
 
 .quantidade-container button {
-    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
     padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantidade-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Botão de Ação no Carrinho */
+.dropdown-carrinho .botao {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-carrinho .botao:hover {
+    background-color: #0056b3;
+}
+
+
+#ver-carrinho {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+    background-color: var(--blue); /* Cor de fundo do botão */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#ver-carrinho:hover {
+    background-color: var(--blue); /* Cor do botão ao passar o mouse */
+    color: #fff;
+}
+
+#ver-carrinho:active {
+    background-color: var(--blue); /* Cor ao clicar no botão */
+}
+
+#carrinho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#carrinho h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+#carrinho button {
+    display: block;
+    width: 50%;
+    padding: 10px 0;
+    margin-top: 10px;
+    background-color: var(--blue); /* Cor de fundo do botão */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#carrinho button:hover {
+    background-color: darkblue; /* Cor do botão ao passar o mouse */
+    color: #fff;
 }

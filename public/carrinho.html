@@ -9,22 +9,24 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul class='nav-bar'>
-                <li class='logo'><a href='#'><img src='./images/logo.jpeg'/></a></li>
-                <input type='checkbox' id='check' />
-                <span class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="lista.html">Produtos</a></li>
-                    <li><a href="#sobrenos">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li id="authButton"><a href="login.html">Login</a></li>
-                    <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
-                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-                </span>
-                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul class='nav-bar'>
+                    <li class='logo'><a href='#'><img src='./images/logo-semfundo.png'/></a></li>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="lista.html">Serviço</a></li>
+                        <li><a href="#sobrenos">Sobre nós</a></li>
+                        <li><a href="#">Contatos</a></li>
+                        <li id="authButton"><a href="login.html">Login</a></li>
+                        <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                </ul>
+            </nav>
+            </header>
         
         <!-- Dropdown para exibir os itens do carrinho -->
         <div id="dropdown-carrinho" class="dropdown-carrinho">
@@ -45,7 +47,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col">
+              <div class="footer-col">
                     <h4>Empresa</h4>
                     <ul>
                         <li><a href="#sobrenos">Sobre</a></li>
@@ -54,13 +56,12 @@
                 <div class="footer-col">
                     <h4>Ajuda</h4>
                     <ul>
-                        <li><a href="#location">Localização</a></li>
                         <li><a href="#perguntas">Perguntas</a></li>
                 </div>
                 <div class="footer-col">
                     <h4>Comprar</h4>
                     <ul>
-                        <li><a href="#modelos">Produtos</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -73,7 +74,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+   </footer>
 
     <script src="./scripts/carrinho.js"></script>
 </body>

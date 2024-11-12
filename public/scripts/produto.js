@@ -20,6 +20,9 @@ if (produtoId) {
                 // Define ações para os botões
                 document.querySelector('#botao-comprar').addEventListener('click', () => comprarProduto(produto));
                 document.querySelector('#botao-adicionar').addEventListener('click', () => adicionarAoCarrinho(produto));
+
+                // Exibir produtos relacionados
+                exibirProdutosRelacionados(produto.categoria);
             } else {
                 console.error('Produto não encontrado');
             }
@@ -124,3 +127,49 @@ document.getElementById('icone-carrinho').addEventListener('click', () => {
 document.getElementById('ver-carrinho').addEventListener('click', () => {
     window.location.href = 'carrinho.html'; // Redireciona para a página carrinho.html
 });
+
+// Função para exibir produtos relacionados
+function exibirProdutosRelacionados(categoria) {
+    fetch('/api/produtos')
+        .then(response => response.json())
+        .then(produtos => {
+            // Filtra os produtos pela mesma categoria
+            const produtosRelacionados = produtos.filter(produto => produto.categoria === categoria);
+
+            // Se não houver produtos da mesma categoria, exibe aleatoriamente outros produtos
+            if (produtosRelacionados.length === 0) {
+                exibirProdutosAleatorios(produtos);
+            } else {
+                exibirProdutos(produtosRelacionados);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar produtos relacionados:', error);
+        });
+}
+
+// Função para exibir produtos aleatórios
+function exibirProdutosAleatorios(produtos) {
+    const produtosAleatorios = produtos.sort(() => Math.random() - 0.5).slice(0, 4); // Seleciona 4 produtos aleatórios
+    exibirProdutos(produtosAleatorios);
+}
+
+// Função para exibir os produtos na seção de "produtos relacionados"
+function exibirProdutos(produtos) {
+    const produtosRelacionadosContainer = document.getElementById('produtos-relacionados');
+    produtosRelacionadosContainer.innerHTML = ''; // Limpa a seção antes de adicionar novos produtos
+
+    produtos.forEach(produto => {
+        const produtoDiv = document.createElement('div');
+        produtoDiv.classList.add('produto-relacionado');
+        produtoDiv.innerHTML = `
+            <img src="${produto.imagemUrl}" alt="${produto.nome}">
+            <h4>${produto.nome}</h4>
+            <p>R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+            <a href="produto.html?id=${produto._id}" class="botao">Ver Detalhes</a>
+        `;
+        produtosRelacionadosContainer.appendChild(produtoDiv);
+    });
+}
+
+
