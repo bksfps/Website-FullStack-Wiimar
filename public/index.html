@@ -11,156 +11,72 @@
 </head>
 <body>
     <header>
-      <nav>
-        <ul class='nav-bar'>
-            <li class='logo'><a href='#'><img src='./images/logo.jpeg'/></a></li>
-            <input type='checkbox' id='check' />
-            <span class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="lista.html">Produtos</a></li>
-                <li><a href="#sobrenos">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-                <li id="authButton"><a href="login.html">Login</a></li>
-                <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
-                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
-    </nav>
-    
-    <!-- Dropdown para exibir os itens do carrinho -->
-    <div id="dropdown-carrinho" class="dropdown-carrinho">
-        <h4>Itens no Carrinho:</h4>
-        <div id="itens-carrinho"></div>
-        <button id="ver-carrinho">Ver Carrinho</button>
-    </div>
+        <nav>
+            <ul class='nav-bar'>
+                <li class='logo'><a href='#'><img src='./images/logo-semfundo.png'/></a></li>
+                <input type='checkbox' id='check' />
+                <span class="menu">
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="lista.html">Serviço</a></li>
+                    <li><a href="#sobrenos">Sobre nós</a></li>
+                    <li><a href="#">Contatos</a></li>
+                    <li id="authButton"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
         </header>
 
 
     <main>
         <section class="first-section">
             <div class="conteudo-principal">
-                <h1>Compre sua <strong>Peça</strong> Hoje!</h1>
-                <h2>Descubra a liberdade e poder de compra em <strong>Wimar Autopeças</strong>!</p>
+                <h1>Wimar <br> Acessórios</h1>
+                <h2>Tem dúvidas sobre peças de carro? Estamos <br> aqui para ajudar! Contate-nos  para suporte <br> personalizado e solução sob medida <br> Responderemos em até 10 minutos! <br> Ou então acesse já nossa loja. </p>
                     <div class="btn">
-                         <a href="#produtos" class="comprar">Compre agora!</a>
+                         <a href="lista.html" class="comprar">Compre agora!</a>
                         <a href="#sobrenos" class="saiba-mais">Saiba mais!</a>
                     </div>
             </div>
 
         </section>
 
+        <section id="modelos" class="secont-section">
+          <h1 class="titulo">Nossos principais produtos</h1>
+  
+          <div class="barra"></div>
+          
+          <div class="container-m">
+  
+              <!-- adicionar funcionalidade no click da imagem q vai pra outra tela -->
+              <div class="box-container">
+                  <img src="images/imagem-produto1.jpeg" alt="Produto 1">
+                  <h2>Lanternas</h2>
+              </div>
+  
+              <div class="box-container">
+                  <img src="images/imagem-produto2.jpeg" alt="Produto 2">
+                  <h2>Acessórios</h2>
+              </div>
+  
+              <div class="box-container">
+                  <img src="images/imagem-produto3.jpeg" alt="Produto 3">
+                  <h2>Para-choques</h2>
+              </div>
+  
+  
+          </div>
+        </section>
+
         <section id="sobrenos" class="sobre-nos">
             <div class="main">
                 <div class="contentsobre">
-                    <h2>Sobre nós</h2>
-                    <p>Na Eco Scooters, acreditamos em uma mobilidade urbana mais inteligente e sustentável. Fundada com o propósito de oferecer soluções de transporte que respeitam o meio ambiente, nossa empresa se dedica a proporcionar uma experiência de locomoção eficiente e ecológica. Com uma frota de scooters e motos elétricas, ajudamos você a reduzir sua pegada de carbono enquanto se desloca com estilo e praticidade.</p>
+                    <!-- <h2>Sobre nós</h2> -->
+                    <p>Acelere Com <br> confiança, nós <br> cuidamos do resto.</p>
                 </div>
-                <div class="img-moto">
+                <!-- <div class="img-moto">
                     <img src="images/fusca.jpeg" alt="">
-                </div>
+                </div> -->
 
             </div>
-        </section>
-
-        <section id="produtos" class="third-section">
-            <div class="container">
-                <h1 class="heading">Produtos</h1>
-                <div class="box-container" id="produtosContainer">
-                </div>
-                <div class="ver-mais-container">
-                  <a href="lista.html" class="botao-ver-mais">Ver mais produtos</a>
-              </div>
-            </div>
-
-        </section>
-        <section id="location" class="fourth-section">
-            <div class="sec">
-                <h1>Nossa Localização</h1>
-                <p>A EcoScooters está localizada no centro da cidade, na Rua da Mobilidade, 123 - Centro, Sua Cidade. Nossa posição estratégica facilita a retirada e devolução das scooters, estando próxima aos principais pontos de transporte e áreas comerciais. Para conveniência adicional, oferecemos também pontos de coleta e entrega em locais-chave ao redor da cidade. Para qualquer dúvida sobre nossa localização ou para obter direções, entre em contato conosco e estaremos prontos para ajudar!</p>
-            </div>
-
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116902.27862699165!2d-46.63671563247242!3d-23.7046863767392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce582da261e6b1%3A0x5ceb2e6bcbc1483b!2sPaulista!5e0!3m2!1spt-BR!2sbr!4v1726504400928!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        </section>
-
-        <section class="fifth-section" id="perguntas">
-            <div class="wrapper">
-                <h1>Perguntas Frequentes</h1>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    O que é a EcoScooters?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        A EcoScooters é uma empresa especializada no aluguel de scooters e motos elétricas, oferecendo uma alternativa de transporte sustentável, prática e econômica para quem deseja se locomover pela cidade de maneira ecológica. Nossa missão é promover a mobilidade urbana inteligente, reduzindo a poluição e proporcionando uma experiência confortável e acessível para nossos clientes.
-                    </p>
-                  </div>
-                </div>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    Como funciona?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        Alugar uma scooter na EcoScooters é fácil e rápido. Primeiro, escolha o modelo que melhor atende suas necessidades no nosso site. Em seguida, selecione o período de aluguel e faça sua reserva online. Após a confirmação, retire a scooter em um de nossos pontos de coleta ou agende a entrega no local desejado. Aproveite a liberdade e praticidade durante o período de aluguel e, ao final, devolva a scooter no mesmo ponto ou solicite a retirada. Nossa equipe oferece suporte 24/7 para garantir que sua experiência seja tranquila e satisfatória.
-                    </p>
-                  </div>
-                </div>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    É confiável?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        Sim, a EcoScooters é totalmente confiável. Priorizamos a segurança e a satisfação dos nossos clientes em todas as etapas do processo. Nossas scooters são regularmente mantidas e passam por inspeções rigorosas para garantir que estejam em perfeito estado de funcionamento. Além disso, oferecemos suporte 24/7 para resolver qualquer questão ou necessidade que você possa ter durante o período de aluguel. Sua segurança e conforto são nossa prioridade, e estamos comprometidos em proporcionar uma experiência de transporte segura e confiável.
-                    </p>
-                  </div>
-                </div>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    O que devo fazer se ocorrer um problema com a scooter?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        Se você encontrar qualquer problema com a scooter durante o período de aluguel, entre em contato imediatamente com nossa equipe de suporte 24/7. Estamos disponíveis para ajudar a resolver quaisquer problemas e garantir que você continue a ter uma experiência tranquila.
-                    </p>
-                  </div>
-                </div>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    Posso cancelar ou alterar minha reserva?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        Sim, você pode cancelar ou alterar sua reserva com antecedência. A política de cancelamento pode variar, então verifique os detalhes específicos no momento da reserva. Para alterações ou cancelamentos, entre em contato conosco através do nosso site ou pelo telefone.
-
-                    </p>
-                  </div>
-                </div>
-          
-                <div class="faq">
-                  <button class="accordion">
-                    Qual é a idade mínima para alugar uma scooter?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="pannel">
-                    <p>
-                        A idade mínima para alugar uma scooter na EcoScooters é de 18 anos. Para alugar, é necessário apresentar um documento de identidade válido e, em alguns casos, uma carteira de habilitação. Verifique os requisitos específicos no momento da reserva.
-                    </p>
-                  </div>
-                </div>
-              </div>
         </section>
 
 
@@ -169,7 +85,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col">
+              <div class="footer-col">
                     <h4>Empresa</h4>
                     <ul>
                         <li><a href="#sobrenos">Sobre</a></li>
@@ -178,7 +94,6 @@
                 <div class="footer-col">
                     <h4>Ajuda</h4>
                     <ul>
-                        <li><a href="#location">Localização</a></li>
                         <li><a href="#perguntas">Perguntas</a></li>
                 </div>
                 <div class="footer-col">
@@ -201,5 +116,4 @@
     
 </body>
 <script src="./scripts/script.js" defer></script>
-<script src="./scripts/carrinho.js" defer></script>
 </html>

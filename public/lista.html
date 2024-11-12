@@ -11,20 +11,17 @@
     <header>
         <nav>
             <ul class='nav-bar'>
-                <li class='logo'><a href='#'><img src='./images/logo.jpeg'/></a></li>
+                <li class='logo'><a href='#'><img src='./images/logo-semfundo.png'/></a></li>
                 <input type='checkbox' id='check' />
                 <span class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="lista.html">Produtos</a></li>
-                    <li><a href="#sobrenos">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="lista.html">Serviço</a></li>
+                    <li><a href="#sobrenos">Sobre nós</a></li>
+                    <li><a href="#">Contatos</a></li>
                     <li id="authButton"><a href="login.html">Login</a></li>
-                    <li><a href="#" id="icone-carrinho"><i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span></a></li>
-                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-                </span>
-                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
             </ul>
         </nav>
+        </header>
         
         <!-- Dropdown para exibir os itens do carrinho -->
         <div id="dropdown-carrinho" class="dropdown-carrinho">
@@ -39,30 +36,39 @@
         <i class="fas fa-search search-icon"></i>
     </div>
 
-    <!-- Seção de Filtros -->
-    <div id="filtros">
-        <h3>Filtros Avançados</h3>
-        <!-- <div>
-            <h4>Categoria</h4>
-            <label><input type="checkbox" class="filtro-categoria" value="categoria1"> Categoria 1</label><br>
-            <label><input type="checkbox" class="filtro-categoria" value="categoria2"> Categoria 2</label><br>
-            <label><input type="checkbox" class="filtro-categoria" value="categoria3"> Categoria 3</label>
-        </div> -->
-
-        <div>
-            <h4>Faixa de Preço</h4>
-            <label><input type="checkbox" class="filtro-preco" value="baixo"> Menor que R$50</label><br>
-            <label><input type="checkbox" class="filtro-preco" value="medio"> Entre R$50 e R$100</label><br>
-            <label><input type="checkbox" class="filtro-preco" value="alto"> Maior que R$100</label>
+    <!-- Contêiner Principal -->
+    <div class="main-container">
+        <!-- Seção de Filtros -->
+        <div id="filtros">
+            <h3>Filtros Avançados</h3>
+            <div>
+                <h4>Categoria</h4>
+                <label><input type="checkbox" class="filtro-categoria" value="acessorios"> Acessórios</label><br>
+                <label><input type="checkbox" class="filtro-categoria" value="lanternas"> Lanternas</label><br>
+                <label><input type="checkbox" class="filtro-categoria" value="para-choques"> Para-choques</label><br>
+                <label><input type="checkbox" class="filtro-categoria" value="rodas"> Rodas</label><br>
+                <label><input type="checkbox" class="filtro-categoria" value="pecas-de-motor"> Peças de Motor</label><br>
+                <label><input type="checkbox" class="filtro-categoria" value="volantes"> Volantes</label>
+            </div>
+            <div>
+                <h4>Faixa de Preço</h4>
+                <label><input type="checkbox" class="filtro-preco" value="baixo"> Menor que R$50</label><br>
+                <label><input type="checkbox" class="filtro-preco" value="medio"> Entre R$50 e R$100</label><br>
+                <label><input type="checkbox" class="filtro-preco" value="alto"> Maior que R$100</label>
+            </div>
         </div>
-    </div>
+        
 
-    <section id="produtos-container"></section>
+        <!-- Seção de Produtos -->
+        <section id="produtos-container">
+            <!-- Conteúdo dos produtos aqui -->
+        </section>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col">
+              <div class="footer-col">
                     <h4>Empresa</h4>
                     <ul>
                         <li><a href="#sobrenos">Sobre</a></li>
@@ -71,14 +77,12 @@
                 <div class="footer-col">
                     <h4>Ajuda</h4>
                     <ul>
-                        <li><a href="#location">Localização</a></li>
                         <li><a href="#perguntas">Perguntas</a></li>
-                    </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Alugar</h4>
+                    <h4>Comprar</h4>
                     <ul>
-                        <li><a href="#modelos">Modelos</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -91,7 +95,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+   </footer>
 
     <script src="scripts/app.js"></script>
     <script src="./scripts/carrinho.js" defer></script>
