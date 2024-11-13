@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import fetch from 'node-fetch';
-import Usuario from './models/Usuario.js';
+import Usuario from './models/usuario.js';
 import Produto from './models/produto.js';
 import { calcularPrecoPrazo } from 'correios-brasil';
 
@@ -105,7 +105,7 @@ app.post('/usuarios/login', async (req, res) => {
 });
 
 app.post('/usuarios/cadastrar', async (req, res) => {
-    const { username, email, phone, senha } = req.body;
+    const { username, email, cpf, phone, senha } = req.body;
 
     try {
         // Verifica se o usuário já existe
@@ -115,12 +115,12 @@ app.post('/usuarios/cadastrar', async (req, res) => {
         }
 
         // Cria um novo usuário
-        const hashedPassword = await bcrypt.hash(senha, 10); // Hash a senha
         const novoUsuario = new Usuario({
             username, // Adicione o campo username no modelo Usuario
             email,
+            cpf,
             phone, // Adicione o campo phone no modelo Usuario
-            senha: hashedPassword, // Armazena a senha como hash
+            senha // Armazena a senha como hash
         });
 
         await novoUsuario.save(); // Salva o novo usuário no banco de dados

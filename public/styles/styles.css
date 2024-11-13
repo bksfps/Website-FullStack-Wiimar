@@ -1081,10 +1081,24 @@ h2 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
+#loginForm #btn {
+    background-color: var(--blue);
+
+}
+
+.container-login p a {
+    color: var(--blue);
+}
+
 /* Estilo do título */
 .container-login h1 {
     text-align: center;
     color: #333; 
+}
+
+
+#cadastroForm #btn{
+    background-color: var(--blue);
 }
 
 /* Estilo dos inputs */

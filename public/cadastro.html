@@ -28,13 +28,14 @@
         <form id="cadastroForm">
             <input type="text" id="usernameCadastro" placeholder="Nome de Usuário" required />
             <input type="email" id="emailCadastro" placeholder="Email" required />
+            <input type="text" id="cpfCadastro" placeholder="CPF" required maxlength="14" />
             <input type="tel" id="phoneCadastro" placeholder="Telefone" required />
             <input type="password" id="senhaCadastro" placeholder="Senha" required />
             <div>
                 <input type="checkbox" id="termos" required />
                 <label for="termos">Aceito os <a href="termos.html" target="_blank">termos de cadastro</a></label>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" id="btn">Cadastrar</button>
         </form>
         <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
     </div>
@@ -71,28 +72,45 @@
         </div>
    </footer>
 
-    <script>
-        // Função para cadastrar usuário
-        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const username = document.getElementById('usernameCadastro').value;
-            const email = document.getElementById('emailCadastro').value;
-            const phone = document.getElementById('phoneCadastro').value;
-            const senha = document.getElementById('senhaCadastro').value;
+   <script>
+    // Máscara simples para CPF
+    document.getElementById('cpfCadastro').addEventListener('input', (e) => {
+        e.target.value = e.target.value
+            .replace(/\D/g, '')  // Remove caracteres não numéricos
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    });
 
+    // Função para cadastrar usuário
+    document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('usernameCadastro').value;
+        const email = document.getElementById('emailCadastro').value;
+        const cpf = document.getElementById('cpfCadastro').value;
+        const phone = document.getElementById('phoneCadastro').value;
+        const senha = document.getElementById('senhaCadastro').value;
+
+        try {
             const response = await fetch('/usuarios/cadastrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, email, phone, senha })
+                body: JSON.stringify({ username, email, cpf, phone, senha })
             });
 
             if (response.ok) {
                 alert('Usuário cadastrado com sucesso!');
                 window.location.href = 'login.html'; // Redireciona para a página de login
             } else {
-                alert('Erro ao cadastrar usuário.');
+                const errorData = await response.json();
+                alert(`Erro: ${errorData.message}`);
             }
-        });
-    </script>
+        } catch (error) {
+            alert('Erro ao cadastrar usuário.');
+            console.error('Erro:', error);
+        }
+    });
+</script>
+<script src="./scripts/script.js" defer></script>
 </body>
 </html>
