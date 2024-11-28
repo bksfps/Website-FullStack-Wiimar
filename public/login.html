@@ -17,8 +17,7 @@
                 <span class="menu">
                     <li><a href="index.html">Página Inicial</a></li>
                     <li><a href="lista.html">Serviço</a></li>
-                    <li><a href="#sobrenos">Sobre nós</a></li>
-                    <li><a href="#">Contatos</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
                     <li id="authButton"><a href="login.html">Login</a></li>
             </ul>
         </nav>
@@ -39,26 +38,24 @@
               <div class="footer-col">
                     <h4>Empresa</h4>
                     <ul>
-                        <li><a href="#sobrenos">Sobre</a></li>
+                        <li><a href="index.html">Home</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Ajuda</h4>
                     <ul>
-                        <li><a href="#perguntas">Perguntas</a></li>
+                        <li><a href="sobre.html">Sobre nós</a></li>
                 </div>
                 <div class="footer-col">
                     <h4>Comprar</h4>
                     <ul>
-                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="lista.html">Produtos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Sociais</h4>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-google"></i></a>
                     </div>
                 </div>
             </div>
@@ -79,8 +76,8 @@
 
     if (response.ok) {
         alert('Login bem-sucedido!');
-        localStorage.setItem('loggedIn', true); // Salva estado de login
-        window.location.href = 'index.html'; // Redireciona para a homepage
+        localStorage.setItem('loggedIn', true);
+        window.location.href = 'index.html';
     } else {
         alert('Erro ao fazer login: Usuário ou senha incorretos.');
     }

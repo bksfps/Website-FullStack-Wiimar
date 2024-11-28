@@ -71,7 +71,7 @@ app.get('/calcular-frete', (req, res) => {
 
     calcularPrecoPrazo(dadosFrete)
     .then(response => {
-        const resultado = response[0]; // Recebe a resposta da API dos Correios
+        const resultado = response[0]; 
         res.json({
             valorFrete: resultado.Valor,
             prazoEntrega: resultado.PrazoEntrega
@@ -88,12 +88,9 @@ app.post('/usuarios/login', async (req, res) => {
     const { email, senha } = req.body;
 
     try {
-        // Busca o usuário no banco de dados
         const usuario = await Usuario.findOne({ email });
 
-        // Verifica se o usuário existe e se a senha está correta
         if (usuario && usuario.senha === senha) {
-            // Supondo que você deseja retornar um token ou uma mensagem de sucesso
             return res.status(200).json({ message: 'Login bem-sucedido!' });
         } else {
             return res.status(401).json({ message: 'Usuário ou senha incorretos.' });
@@ -108,7 +105,6 @@ app.post('/usuarios/cadastrar', async (req, res) => {
     const { username, email, cpf, phone, senha } = req.body;
 
     try {
-        // Verifica se o usuário já existe
         const usuarioExistente = await Usuario.findOne({ email });
         if (usuarioExistente) {
             return res.status(400).json({ message: 'Usuário já cadastrado.' });
@@ -116,14 +112,14 @@ app.post('/usuarios/cadastrar', async (req, res) => {
 
         // Cria um novo usuário
         const novoUsuario = new Usuario({
-            username, // Adicione o campo username no modelo Usuario
+            username, 
             email,
             cpf,
-            phone, // Adicione o campo phone no modelo Usuario
-            senha // Armazena a senha como hash
+            phone,
+            senha 
         });
 
-        await novoUsuario.save(); // Salva o novo usuário no banco de dados
+        await novoUsuario.save(); 
         res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
     } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
