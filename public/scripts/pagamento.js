@@ -35,3 +35,25 @@ function carregarProdutosParaPagamento() {
     totalDiv.innerHTML = `<h3>Total: R$ ${total.toFixed(2).replace('.', ',')}</h3>`;
     produtoResumo.appendChild(totalDiv);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const authButton = document.getElementById('authButton');
+
+    // Verifica se o usuário está logado
+    const isLoggedIn = localStorage.getItem('loggedIn');
+
+    if (isLoggedIn) {
+        // Se o usuário estiver logado, exibe o botão "Sair"
+        authButton.innerHTML = '<a href="#" onclick="logout()">Sair</a>';
+    } else {
+        // Se o usuário não estiver logado, exibe o botão "Login"
+        authButton.innerHTML = '<a href="login.html">Login</a>';
+    }
+});
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('loggedIn'); // Remove o estado de login
+    window.location.href = 'index.html'; // Redireciona para a homepage
+}
